@@ -1,7 +1,14 @@
 # Calculator
 
 ## What it does
-Takes two numbers and an operator (+,-,*,/) from the user and returns the result of the calculation.
+Takes two numbers and an operator 
+```
++  addition
+-  subtraction
+*  multiplication
+/  division
+```
+from the user and returns the result of the calculation.
 
 ## How it works
 - User inputs first number
