@@ -2,8 +2,10 @@
 
 ## What it does
 Takes six values from the user and calculates the values of x and y in this format:
-- ax + by = e
-- cx + dy = f
+```
+ax + by = e
+cx + dy = f
+```
 
 ## How it works
 - User inputs a, b, c, d, e, f
