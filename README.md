@@ -1,4 +1,4 @@
-# CPE Club - Week 1 & Week 2 Projects
+# CPE Club - Projects
 
 C programs built as part of the CPE Club's first two weeks of hands-on programming. Week 1 covers core programming fundamentals while Week 2 dives into data structures, memory manipulation, and pointers.
 
