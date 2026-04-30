@@ -174,7 +174,7 @@ Encrypt and decrypt messages by shifting each character's ASCII value using a ke
 - Shifts each character's ASCII value by the key to encrypt or reverse it to decrypt
 
 ### How to run
-gcc cipher.c -o cipher
+gcc ciphertool.c -o ciphertool
 ./cipher
 ### Example
 Choice: 1
