@@ -1,6 +1,6 @@
 # CPE Club - Projects
 
-C programs built as part of the CPE Club's first two weeks of hands-on programming. Week 1 covers core programming fundamentals while Week 2 dives into data structures, memory manipulation, and pointers.
+C programs built as part of the CPE Club's hands-on programming sessions. Each week introduces new concepts, from core fundamentals to data structures, memory manipulation, algorithms, and file I/O.
 
 ---
 
@@ -14,6 +14,8 @@ C programs built as part of the CPE Club's first two weeks of hands-on programmi
 | Week 2 | Mini Firewall | Filters and orders network packets by priority |
 | Week 2 | Shell-Based Phonebook | Manages a contact database using structs and pointers |
 | Week 2 | Substitution Cipher Tool | Encrypts and decrypts messages using ASCII shifting |
+| Week 4 | Dynamic Multiplication Grid | Generates a perfectly aligned n x n multiplication table |
+| Week 4 | Student Information Management System | Full CRUD student records system with file I/O |
 
 ---
 
@@ -31,15 +33,17 @@ C programs built as part of the CPE Club's first two weeks of hands-on programmi
 4. Press F9 to compile and run
 5. Follow the prompts on screen
 
-## How to run Week 2 projects
+## How to run Week 2, 4 projects
 1. Open VS Code
-2. Open the terminal with Ctrl + 
+2. Open the terminal with Ctrl + `
 3. Compile the file:
-``bash
+```bash
 gcc filename.c -o filename
+```
 4. Run it:
-bash
+```bash
 ./filename
+```
 
 ---
 
@@ -51,8 +55,10 @@ Solves a 2x2 system of linear equations using Cramer's Rule.
 
 ### What it does
 Takes six values from the user and calculates x and y in this format:
+```
 ax + by = e
 cx + dy = f
+```
 
 ### How it works
 - User inputs a, b, c, d, e, f
@@ -73,10 +79,12 @@ Performs basic arithmetic between two numbers using an operator selected by the 
 Takes two numbers and an operator then returns the result.
 
 ### Supported operators
+```
 +  addition
 -  subtraction
 *  multiplication
 /  division
+```
 
 ### Edge Cases
 - Division by zero prints an error instead of crashing
@@ -122,24 +130,29 @@ A firewall that filters and orders network packets based on priority and sequenc
 - Outputs serial numbers ordered by highest priority, then by lowest serial number for ties
 
 ### How to run
-bash
+```bash
 gcc firewall.c -o firewall
 ./firewall
+```
 
 ### Input format (packets.txt)
+```
 1, 5
 10, 1
 3, 2
 7, 1
 4, 3
+```
 
 ### Output
+```
 Filtered Packet Order:
 SerialNo: 7  | Priority: 1
 SerialNo: 10 | Priority: 1
 SerialNo: 3  | Priority: 2
 SerialNo: 4  | Priority: 3
 SerialNo: 1  | Priority: 5
+```
 
 ---
 
@@ -151,10 +164,11 @@ SerialNo: 1  | Priority: 5
 - Supports adding, searching, deleting, and listing contacts
 
 ### How to run
-bash
+```bash
 gcc phonebook.c -o phonebook
 ./phonebook
-`
+```
+
 ### Features
 - Add a contact
 - Search by name
@@ -174,9 +188,13 @@ Encrypt and decrypt messages by shifting each character's ASCII value using a ke
 - Shifts each character's ASCII value by the key to encrypt or reverse it to decrypt
 
 ### How to run
+```bash
 gcc ciphertool.c -o ciphertool
-./cipher
+./ciphertool
+```
+
 ### Example
+```
 Choice: 1
 Enter message: hello
 Enter key: 3
@@ -186,6 +204,8 @@ Choice: 2
 Enter message: khoor
 Enter key: 3
 Decrypted: hello
+```
+
 ---
 
 ## Concepts covered in Week 2
@@ -202,10 +222,133 @@ Decrypted: hello
 
 ---
 
+# Week 4 Projects
+
+## Project 1: Dynamic Multiplication Grid
+
+### Objective
+A terminal program that takes a grid size from the user and generates a perfectly aligned n x n multiplication table.
+
+### How it works
+- Prompts the user for a grid size and validates that it is greater than zero
+- Uses nested loops to compute and print every cell value
+- Formats output with aligned column and row labels
+- Displays total cells computed and the time complexity at the end
+
+### Algorithm
+This program applies **O(n²) nested iteration** from Big O notation.
+- Outer loop handles rows: O(n)
+- Inner loop handles columns: O(n) per row
+- Combined: O(n²) total operations
+
+Reference: *Grokking Algorithms, 2nd Edition* by Aditya Bhargava, Chapter 1.
+
+### How to run
+```bash
+gcc multiplication_grid.c -o multiplication_grid
+./multiplication_grid
+```
+
+### Sample output
+```
+Enter grid size (must be greater than 0): 5
+
+          Col 1   Col 2   Col 3   Col 4   Col 5
+        ----------------------------------------
+Row 1   |      1       2       3       4       5
+Row 2   |      2       4       6       8      10
+Row 3   |      3       6       9      12      15
+Row 4   |      4       8      12      16      20
+Row 5   |      5      10      15      20      25
+
+Grid size: 5 x 5 | Total cells computed: 25
+Time complexity: O(n^2) where n = 5
+```
+
+---
+
+## Project 2: Student Information Management System (SIMS)
+
+### Objective
+A terminal-based student records system that supports full CRUD operations, bulk file import, and file export.
+
+### How it works
+- Stores all records in a fixed-size array of structs (up to 100 students)
+- Each record holds first name, last name, roll number, CGPA, and five course IDs
+- Searches use linear search (O(n)) since records are added and deleted freely
+- Deleting a record shifts all subsequent elements one position back in the array
+
+### Algorithm design
+
+| Operation | Algorithm | Time Complexity |
+|---|---|---|
+| Add student | Array insert at end | O(1) |
+| Find by roll / name | Linear search | O(n) |
+| Delete student | Array shift-left | O(n) |
+| Update student | Linear search + in-place edit | O(n) |
+| Bulk import | Sequential file read | O(n) |
+| Export all | Sequential array scan | O(n) |
+
+Reference: *Grokking Algorithms, 2nd Edition* by Aditya Bhargava, Chapters 1 and 2.
+
+### How to run
+```bash
+gcc sims.c -o sims
+./sims
+```
+
+Place `students.txt` in the same folder as the executable before using the Bulk Import option.
+
+### Text file format (students.txt)
+```
+FirstName LastName RollNumber CGPA Course1 Course2 Course3 Course4 Course5
+```
+
+Sample:
+```
+Billo Doe 101 4.2 10 11 12 13 14
+Amara Smith 102 4.8 10 15 16 17 18
+Emmanuel Okon 103 3.9 11 12 19 20 21
+Precious Nnamdi 104 4.5 10 13 14 22 23
+```
+
+### Menu options
+
+| Option | Action |
+|---|---|
+| 1 | Add Student Details (Manual Input) |
+| 2 | Bulk Import Students (Read from students.txt) |
+| 3 | Download All Students (Write to database_backup.txt) |
+| 4 | Find Student by Roll Number |
+| 5 | Find Student by First Name |
+| 6 | Delete Student by Roll Number |
+| 7 | Update Student by Roll Number |
+| 8 | Display All Students in Memory |
+| 9 | Exit |
+
+---
+
+## Concepts covered in Week 4
+
+| Concept | Where it appears |
+|---|---|
+| Nested loops | Multiplication Grid |
+| Big O notation (O(n²)) | Multiplication Grid |
+| Output formatting with %d width | Multiplication Grid |
+| Structs and arrays of structs | SIMS |
+| Linear search | SIMS |
+| Array deletion with element shifting | SIMS |
+| File I/O (fscanf, fprintf) | SIMS |
+| Input validation | Both projects |
+| Duplicate detection | SIMS |
+| Menu-driven flow with switch | SIMS |
+
+---
+
 ## Tech Stack
 - Language: C
 - Compiler: GCC 14.3.0
 - OS: Windows 11
 
 ## Author
-Johnpaul3.0 - CPE Club Week 1 and Week 2
+Johnpaul3.0 - CPE Club Week 1, Week 2, and Week 4
