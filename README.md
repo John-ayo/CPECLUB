@@ -1,26 +1,28 @@
 # CPE Club - Projects
 
-C programs built as part of the CPE Club's hands-on programming sessions. Each week introduces new concepts, from core fundamentals to data structures, memory manipulation, algorithms, and file I/O.
+C and Python programs built as part of the CPE Club's hands-on programming sessions. Each week introduces new concepts, from core fundamentals to data structures, memory manipulation, algorithms, and file I/O.
 
 ---
 
 ## Projects Overview
 
-| Week | Project | Description |
-|---|---|---|
-| Week 1 | Cramer's Rule Solver | Solves a 2x2 system of linear equations |
-| Week 1 | Mini Calculator | Performs basic arithmetic operations |
-| Week 1 | Even/Odd Checker | Classifies a number as even or odd |
-| Week 2 | Mini Firewall | Filters and orders network packets by priority |
-| Week 2 | Shell-Based Phonebook | Manages a contact database using structs and pointers |
-| Week 2 | Substitution Cipher Tool | Encrypts and decrypts messages using ASCII shifting |
-| Week 4 | Dynamic Multiplication Grid | Generates a perfectly aligned n x n multiplication table |
-| Week 4 | Student Information Management System | Full CRUD student records system with file I/O |
+| Week | Project | Language | Description |
+|---|---|---|---|
+| Week 1 | Cramer's Rule Solver | C | Solves a 2x2 system of linear equations |
+| Week 1 | Mini Calculator | C | Performs basic arithmetic operations |
+| Week 1 | Even/Odd Checker | C | Classifies a number as even or odd |
+| Week 2 | Mini Firewall | C | Filters and orders network packets by priority |
+| Week 2 | Shell-Based Phonebook | C | Manages a contact database using structs and pointers |
+| Week 2 | Substitution Cipher Tool | C | Encrypts and decrypts messages using ASCII shifting |
+| Week 4 | Dynamic Multiplication Grid | C | Generates a perfectly aligned n x n multiplication table |
+| Week 4 | Student Information Management System | C | Full CRUD student records system with file I/O |
+| Week 5 | Number Guessing Game | Python | Terminal guessing game with attempt tracking |
 
 ---
 
 ## What you will need
 - GCC 14.3.0 installed and added to PATH
+- Python 3 installed and added to PATH
 - VS Code with the C/C++ extension by Microsoft
 - Code::Blocks (for Week 1 projects)
 
@@ -43,6 +45,14 @@ gcc filename.c -o filename
 4. Run it:
 ```bash
 ./filename
+```
+
+## How to run Week 5 projects
+1. Open VS Code
+2. Open the terminal with Ctrl + `
+3. Run the file:
+```bash
+python filename.py
 ```
 
 ---
@@ -345,10 +355,52 @@ Precious Nnamdi 104 4.5 10 13 14 22 23
 
 ---
 
+# Week 5 Projects
+
+## Project 1: Number Guessing Game
+
+A terminal game where the computer holds a hidden number and the player guesses until they get it right.
+
+### How it works
+- A hidden number is set between 1 and 20
+- Player keeps guessing until they match it
+- Program tells them if each guess is too high or too low
+- Attempt count is tracked and shown when the player wins
+
+### How to run
+```bash
+python guessing_game.py
+```
+
+### Example output
+```
+Guess a number between 1 and 20: 15
+Too high! Try again.
+Guess a number between 1 and 20: 5
+Too low! Try again.
+Guess a number between 1 and 20: 7
+Congratulations! You guessed the number in 3 tries!
+```
+
+---
+
+## Concepts covered in Week 5
+
+| Concept | Where it appears |
+|---|---|
+| Variables and data types | Guessing Game |
+| While loops | Guessing Game |
+| Conditionals (if, elif, else) | Guessing Game |
+| Type conversion with int() | Guessing Game |
+| Attempt counter | Guessing Game |
+
+---
+
 ## Tech Stack
-- Language: C
+- Language: C, Python
 - Compiler: GCC 14.3.0
+- Python: 3.x
 - OS: Windows 11
 
 ## Author
-Johnpaul3.0 - CPE Club Week 1, Week 2, and Week 4
+John-ayo - CPEClub Week 1, Week 2, Week 4, and Week 5
